@@ -1,0 +1,390 @@
+:root {
+  color-scheme: light;
+  --bg: #f5efe5;
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-strong: #ffffff;
+  --text: #201b13;
+  --muted: #5d5549;
+  --accent: #7e5a32;
+  --accent-dark: #573b1f;
+  --line: rgba(32, 27, 19, 0.1);
+  --shadow: 0 20px 55px rgba(60, 42, 18, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(126, 90, 50, 0.18), transparent 22%),
+    linear-gradient(180deg, #fbf7f1 0%, #f4ede2 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 78%);
+}
+
+body,
+a,
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.site-shell {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1rem 0 4rem;
+}
+
+.hero,
+.section,
+.inventory-card,
+.feature-strip article,
+.contact-card,
+.hero-card,
+.service-area {
+  backdrop-filter: blur(18px);
+}
+
+.topbar,
+.hero-grid,
+.feature-strip,
+.inventory-grid,
+.split-section,
+.faq-grid,
+.footer {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.topbar {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  display: inline-grid;
+  gap: 0.2rem;
+}
+
+.brand strong {
+  font-size: 1.15rem;
+}
+
+.topbar-links {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.topbar-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.eyebrow,
+.badge,
+.card-label {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.eyebrow,
+.card-label {
+  color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+p,
+ol {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 5.3vw, 5rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+  max-width: 11ch;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.3vw, 3.2rem);
+  line-height: 1.08;
+  margin-bottom: 0.85rem;
+}
+
+.hero-panel h2,
+.hero-card h2 {
+  font-size: 1.2rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+p,
+ol {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  align-items: stretch;
+}
+
+.hero-copy,
+.hero-card,
+.section,
+.feature-strip article,
+.inventory-card,
+.contact-card,
+.service-area {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  box-shadow: var(--shadow);
+}
+
+.hero-copy,
+.hero-card,
+.contact-card,
+.section,
+.service-area {
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.badge {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), #b78d59);
+}
+
+.hero-actions,
+.stats,
+.mini-list,
+.form-actions {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-actions {
+  grid-template-columns: repeat(2, max-content);
+  margin: 1.75rem 0;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.95rem 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--text);
+  border: 1px solid var(--line);
+}
+
+.stats {
+  list-style: none;
+  padding: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.stats li,
+.mini-list article,
+.feature-strip article,
+.faq-grid article {
+  padding: 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+}
+
+.stats strong,
+.price {
+  display: block;
+  font-size: 1.12rem;
+  color: var(--text);
+}
+
+.hero-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.hero-note,
+.form-note {
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  background: rgba(126, 90, 50, 0.11);
+  color: var(--text);
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.section-heading {
+  max-width: 780px;
+}
+
+.inventory-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.inventory-card {
+  overflow: hidden;
+}
+
+.image {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, rgba(126, 90, 50, 0.4), rgba(40, 31, 20, 0.78));
+}
+
+.content {
+  padding: 1.15rem;
+}
+
+.meta {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature-strip,
+.faq-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.split-section {
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.9fr);
+  align-items: start;
+}
+
+.steps {
+  padding-left: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.quote-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.quote-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0.95rem 1rem;
+}
+
+.form-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.footer {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1.5rem 0 0;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 1024px) {
+  .inventory-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .topbar,
+  .hero-grid,
+  .stats,
+  .feature-strip,
+  .split-section,
+  .faq-grid,
+  .footer,
+  .inventory-grid,
+  .form-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar-links,
+  .footer-links {
+    justify-self: start;
+    justify-content: start;
+  }
+
+  .hero-actions {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    max-width: none;
+  }
+}
